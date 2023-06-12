@@ -47,6 +47,7 @@ if (pulseSensor.sawStartOfBeat())               //Constantly test to see if "a b
   {
     fatburnPoints++;
     i++;                                      //i++ is needed to leave the loop and recheck if HR is still in zone.
+    //should add the new FBP to the previous then update the number.
     EEPROM.update(a, fatburnPoints);          //Saves the data at address a
   } 
 }
