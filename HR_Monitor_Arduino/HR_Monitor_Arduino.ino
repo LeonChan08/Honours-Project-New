@@ -1,14 +1,3 @@
-
-/*  Getting_BPM_to_Monitor prints the BPM to the Serial Monitor, using the least lines of code and PulseSensor Library.
- *  Tutorial Webpage: https://pulsesensor.com/pages/getting-advanced
- *
---------Use This Sketch To------------------------------------------
-1) Displays user's live and changing BPM, Beats Per Minute, in Arduino's native Serial Monitor.
-2) Print: "♥  A HeartBeat Happened !" when a beat is detected, live.
-2) Learn about using a PulseSensor Library "Object".
-4) Blinks LED on PIN 13 with user's Heartbeat.
---------------------------------------------------------------------*/
-
 #define USE_ARDUINO_INTERRUPTS true    // Set-up low-level interrupts for most acurate BPM math.
 #include <PulseSensorPlayground.h>     // Includes the PulseSensorPlayground Library.   
 #include <EEPROM.h>
@@ -17,8 +6,7 @@
 const int PulseWire = 0;       // PulseSensor PURPLE WIRE connected to ANALOG PIN 0
 const int LED13 = 13;          // The on-board Arduino LED, close to PIN 13.
 int Threshold = 550;           // Determine which Signal to "count as a beat" and which to ignore.
-                               // Use the "Gettting Started Project" to fine-tune Threshold Value beyond default setting.
-                               // Otherwise leave the default "550" value. 
+                             
 
 int fatburnPoints;
 int finalfatburnPoints;
@@ -55,7 +43,7 @@ void loop() {
  
 if (pulseSensor.sawStartOfBeat())               //Constantly test to see if "a beat happened"
 {           
-  while(myBPM > 70 && myBPM < 80 && i<10)     //adds points while in fat burn HR. 
+  while(myBPM > 60 && myBPM < 85 && i<10)     //adds points while in fat burn HR. 
   {
     fatburnPoints++;
     i++;                                      //i++ is needed to leave the loop and recheck if HR is still in zone.
